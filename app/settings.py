@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'graphene_django',
     'departments',
     'groups',
+    'group_seasons',
 ]
 
 MIDDLEWARE = [
