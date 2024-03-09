@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'club',
     'departments',
     'groups',
+    'group_programs',
     'group_seasons',
     'member',
 ]
