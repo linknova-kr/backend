@@ -9,3 +9,6 @@ class Club(models.Model):
   class Meta:
     verbose_name = '별모임'
     verbose_name_plural = '별모임'
+
+  def __str__(self):
+    return self.name

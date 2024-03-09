@@ -1,5 +1,6 @@
 import graphene
 from club.schema import club_schema
+from club_events.schema import club_event_schema
 from departments.schema import department_schema
 from groups.schema import group_schema
 from group_programs.schema import group_program_schema
@@ -13,6 +14,7 @@ class Query(
     group_season_schema.Query, 
     member_schema.Query,
     group_program_schema.Query,
+    club_event_schema.Query,
 ):
     pass
 

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'graphene_django',
     'graphql_jwt.refresh_token.apps.RefreshTokenConfig',
     'club',
+    'club_events',
     'departments',
     'groups',
     'group_programs',
