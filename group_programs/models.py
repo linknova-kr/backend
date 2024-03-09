@@ -20,3 +20,21 @@ class GroupProgram(models.Model):
   class Meta:
     verbose_name = '모임 프로그램'
     verbose_name_plural = '모임 프로그램'
+
+USER_GROUP_PROGRAM_STATUS = (
+  ('ABSENCE', '결석'),
+  ('ATTENDANCE_NOTLATE', '출석: 지각안함'),
+  ('ATTENDANCE_LATE', '출석: 지각'),
+  ('PENDING', '미정'),
+)
+
+class UserGroupProgram(models.Model):
+  member = models.ForeignKey(Member, on_delete=models.CASCADE)
+  group_program = models.ForeignKey(GroupProgram, on_delete=models.CASCADE)
+  created_at = models.DateTimeField(auto_now_add=True)
+  cancelled_at = models.DateTimeField(null=True)
+  status = models.CharField(max_length=20, choices=USER_GROUP_PROGRAM_STATUS)
+
+  class Meta:
+    verbose_name = '회원별 모임 프로그램'
+    verbose_name_plural = '회원별 모임 프로그램'

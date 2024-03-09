@@ -18,7 +18,8 @@ class Query(
 
 class Mutation(
     member_schema.Mutation, 
-    group_season_schema.Mutation
+    group_season_schema.Mutation,
+    group_program_schema.Mutation,
 ):
     pass
 

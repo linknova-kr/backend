@@ -4,7 +4,7 @@ from graphene_django import DjangoObjectType
 from schema.types import NotFoundException
 
 from .models import GroupProgram
-
+from .resolvers.join_group_program import JoinGroupProgram
 
 class GroupProgramType(DjangoObjectType):
   class Meta:
@@ -28,4 +28,7 @@ class Query(ObjectType):
       return NotFoundException(message=f'GroupProgram with id {id} does not exist')
     return groupProgram
   
-group_program_schema = Schema(query=Query)
+class Mutation(ObjectType):
+  joinGroupProgram = JoinGroupProgram.Field()
+  
+group_program_schema = Schema(query=Query, mutation=Mutation)
