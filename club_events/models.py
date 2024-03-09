@@ -16,3 +16,16 @@ class ClubEvent(models.Model):
 
   def __str__(self):
     return f"{self.club}: {self.title}"
+  
+class UserClubEvent(models.Model):
+  member = models.ForeignKey(Member, on_delete=models.CASCADE)
+  club_event = models.ForeignKey(ClubEvent, on_delete=models.CASCADE)
+  created_at = models.DateTimeField(auto_now_add=True)
+  cancelled_at = models.DateTimeField(null=True, blank=True)
+
+  class Meta:
+    verbose_name = '회원별 별모임 이벤트'
+    verbose_name_plural = '회원별 별모임 이벤트'
+
+  def __str__(self):
+    return f"{self.club_event}: {self.member}"
