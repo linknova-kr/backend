@@ -1,9 +1,11 @@
-from graphene import ID, Field, List, NonNull, ObjectType, Schema, Union
+from graphene import (ID, Field, List, Mutation, NonNull,
+                      ObjectType, Schema, Union)
 from graphene_django import DjangoObjectType
 
 from schema.types import NotFoundException
 
 from .models import GroupSeason
+from .resolvers.join_group_season import JoinGroupSeason
 
 
 class GroupSeasonType(DjangoObjectType):
@@ -28,4 +30,7 @@ class Query(ObjectType):
             return NotFoundException(message=f'GroupSeason with id {id} does not exist')
         return groupSeason
     
-group_season_schema = Schema(query=Query)
+class Mutation(ObjectType):
+    joinGroupSeason = JoinGroupSeason.Field()
+    
+group_season_schema = Schema(query=Query, mutation=Mutation)
