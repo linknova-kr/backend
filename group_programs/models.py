@@ -21,6 +21,9 @@ class GroupProgram(models.Model):
     verbose_name = '모임 프로그램'
     verbose_name_plural = '모임 프로그램'
 
+  def __str__(self):
+    return self.title
+
 USER_GROUP_PROGRAM_STATUS = (
   ('ABSENCE', '결석'),
   ('ATTENDANCE_NOTLATE', '출석: 지각안함'),
@@ -38,3 +41,6 @@ class UserGroupProgram(models.Model):
   class Meta:
     verbose_name = '회원별 모임 프로그램'
     verbose_name_plural = '회원별 모임 프로그램'
+
+  def __str__(self):
+    return f'{self.group_program}: {self.member}'

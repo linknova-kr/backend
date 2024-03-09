@@ -9,3 +9,6 @@ class Group(models.Model):
   class Meta:
     verbose_name = '모임'
     verbose_name_plural = '모임'
+
+  def __str__(self):
+    return self.name

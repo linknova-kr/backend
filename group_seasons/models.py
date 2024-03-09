@@ -11,6 +11,9 @@ class GroupSeason(models.Model):
     verbose_name = '모임 시즌'
     verbose_name_plural = '모임 시즌'
 
+  def __str__(self):
+    return f'{self.group}: {self.start_at} ~ {self.end_at}'
+
 USER_GROUP_SEASON_LEVEL = (
   ('INACTIVE', '휴면'),
   ('WAITING_DEPOSIT', '입금대기'),
@@ -28,3 +31,6 @@ class UserGroupSeason(models.Model):
   class Meta:
     verbose_name = '회원별 모임 시즌'
     verbose_name_plural = '회원별 모임 시즌'
+
+  def __str__(self):
+    return f'{self.group_season}: {self.member}'

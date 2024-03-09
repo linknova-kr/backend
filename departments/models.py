@@ -7,3 +7,6 @@ class Department(models.Model):
   class Meta:
     verbose_name = '계열'
     verbose_name_plural = '계열'
+
+  def __str__(self):
+    return self.name
