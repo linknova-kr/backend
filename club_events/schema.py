@@ -4,6 +4,7 @@ from graphene_django import DjangoObjectType
 from schema.types import NotFoundException
 from .models import ClubEvent
 from .resolvers.join_club_event import JoinClubEvent
+from .resolvers.cancel_user_club_event import CancelUserClubEvent
 
 class ClubEventType(DjangoObjectType):
   class Meta:
@@ -28,6 +29,7 @@ class Query(ObjectType):
     return clubEvent
 
 class Mutation(ObjectType):
-  joinClubEvent = JoinClubEvent.Field() 
+  joinClubEvent = JoinClubEvent.Field()
+  cancelUserClubEvent = CancelUserClubEvent.Field()
 
 club_event_schema = Schema(query=Query, mutation=Mutation)
